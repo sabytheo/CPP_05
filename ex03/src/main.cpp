@@ -10,46 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
+#include <ctime>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
 	std::srand(time(NULL));
 
-	Bureaucrat Paul("Paul",150);
-	Bureaucrat Pierre("Pierre",1);
-	ShrubberyCreationForm Tree("Tree");
-	RobotomyRequestForm Robot("Robot");
-	PresidentialPardonForm Pardon("Pardon");
+	Intern intern;
+	Bureaucrat boss("Boss", 1);
 
-	std::cout << "---------------------------------" << std::endl;
+	AForm* rrf = intern.makeForm("robotomy request", "Bender");
+	AForm* scf = intern.makeForm("shrubbery creation", "home");
+	AForm* ppf = intern.makeForm("presidential pardon", "Arthur");
+	AForm* bad = intern.makeForm("coffee request", "me");
 
-	try
-	{
+	std::cout << "---" << std::endl;
 
-		Pierre.signForm(Tree);
-		Pierre.signForm(Robot);
-		std::cout << "---------------------------------" << std::endl;
+	boss.signForm(*rrf);
+	boss.executeForm(*rrf);
 
-		// Tree.execute(Paul);
-		// Tree.execute(Pierre);
-		// Robot.execute(Pierre);
-		// Pierre.executeForm(Tree);
-		Pierre.executeForm(Tree);
-		Pierre.executeForm(Robot);
-		Pierre.executeForm(Pardon);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << '\n';
-	}
+	std::cout << "---" << std::endl;
 
-	std::cout << "---------------------------------" << std::endl;
+	boss.signForm(*scf);
+	boss.executeForm(*scf);
+
+	std::cout << "---" << std::endl;
+
+	boss.signForm(*ppf);
+	boss.executeForm(*ppf);
+
+	delete rrf;
+	delete scf;
+	delete ppf;
+	delete bad;
 
 	return (0);
-
 }

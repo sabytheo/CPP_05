@@ -15,13 +15,37 @@
 
 int main(void)
 {
-	Bureaucrat FF("Paul",150);
-	Bureaucrat FG("Paul1",1);
-	Form Fb("nana",30,30);
+	try
+	{
+		Form badHigh("BadHigh", 0, 10);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	FG.signForm(Fb);
-	FF.signForm(Fb);
+	try
+	{
+		Form badLow("BadLow", 151, 10);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	Form taxForm("TaxForm", 50, 25);
+	std::cout << taxForm << std::endl;
+
+	Bureaucrat highRank("HighRank", 1);
+	Bureaucrat lowRank("LowRank", 150);
+
+	highRank.signForm(taxForm);
+	std::cout << taxForm << std::endl;
+
+	lowRank.signForm(taxForm);
+
+	Form permitForm("PermitForm", 10, 5);
+	lowRank.signForm(permitForm);
 
 	return (0);
-
 }

@@ -87,6 +87,6 @@ Bureaucrat::~Bureaucrat(void)
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other)
 {
-	os << other.getName() << ", bureaucrate grade " << other.getGrade() << ".";
+	os << other.getName() << ", bureaucrat grade " << other.getGrade() << ".";
 	return os;
 }

@@ -14,57 +14,50 @@
 
 int main(void)
 {
+	Bureaucrat alice("Alice", 75);
+	std::cout << alice << std::endl;
+
 	try
 	{
-		Bureaucrat a;
-		Bureaucrat b("Tom",48);
-		Bureaucrat c("Pouce",0);
+		Bureaucrat tooHigh("TooHigh", 0);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-
-	std::cout << "-----------------------------------------------------" << std::endl;
 	try
 	{
-		Bureaucrat d("Pouce",151);
+		Bureaucrat tooLow("TooLow", 151);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-
-	std::cout << "-----------------------------------------------------" << std::endl;
 	try
 	{
-		Bureaucrat FF("Paul",2);
-		FF.incrementGrade();
-		std::cout << FF << std::endl;
-		FF.incrementGrade();
-		std::cout << FF << std::endl;
+		Bureaucrat dave("Dave", 2);
+		dave.incrementGrade();
+		std::cout << dave << std::endl;
+		dave.incrementGrade();
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-		std::cout << "-----------------------------------------------------" << std::endl;
 	try
 	{
-		Bureaucrat FF("Paul",149);
-		FF.decrementGrade();
-		std::cout << FF << std::endl;
-		FF.decrementGrade();
-		std::cout << FF << std::endl;
+		Bureaucrat eve("Eve", 149);
+		eve.decrementGrade();
+		std::cout << eve << std::endl;
+		eve.decrementGrade();
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
 	return (0);
-
 }

@@ -20,36 +20,40 @@ int main(void)
 {
 	std::srand(time(NULL));
 
-	Bureaucrat Paul("Paul",150);
-	Bureaucrat Pierre("Pierre",1);
-	ShrubberyCreationForm Tree("Tree");
-	RobotomyRequestForm Robot("Robot");
-	PresidentialPardonForm Pardon("Pardon");
+	Bureaucrat high("HighRank", 1);
+	Bureaucrat low("LowRank", 150);
 
-	std::cout << "---------------------------------" << std::endl;
+	ShrubberyCreationForm shrubbery("home");
+	std::cout << shrubbery << std::endl;
 
-	try
-	{
+	high.executeForm(shrubbery);
 
-		Pierre.signForm(Tree);
-		Pierre.signForm(Robot);
-		std::cout << "---------------------------------" << std::endl;
+	high.signForm(shrubbery);
+	high.executeForm(shrubbery);
+	low.executeForm(shrubbery);
 
-		// Tree.execute(Paul);
-		// Tree.execute(Pierre);
-		// Robot.execute(Pierre);
-		// Pierre.executeForm(Tree);
-		Pierre.executeForm(Tree);
-		Pierre.executeForm(Robot);
-		Pierre.executeForm(Pardon);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << '\n';
-	}
+	std::cout << "---" << std::endl;
 
-	std::cout << "---------------------------------" << std::endl;
+	RobotomyRequestForm robotomy("Bender");
+	std::cout << robotomy << std::endl;
+
+	high.signForm(robotomy);
+	high.executeForm(robotomy);
+	low.executeForm(robotomy);
+
+	std::cout << "---" << std::endl;
+
+	PresidentialPardonForm pardon("Arthur");
+	std::cout << pardon << std::endl;
+
+	high.signForm(pardon);
+	high.executeForm(pardon);
+	low.executeForm(pardon);
+
+	std::cout << "---" << std::endl;
+
+	ShrubberyCreationForm shrubbery2("garden");
+	low.signForm(shrubbery2);
 
 	return (0);
-
 }

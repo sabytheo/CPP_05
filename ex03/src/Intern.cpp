@@ -54,7 +54,7 @@ static AForm *makePresidential(std::string target)
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	std::string existingForm[] = {"Pardon", "Tree", "Robot"};
+	std::string existingForm[] = {"presidential pardon", "shrubbery creation", "robotomy request"};
 	AForm*(*func[])(std::string)= {&makePresidential,&makeShrubbery,&makeRobotomy};
 
 	for(int i = 0; i < 3; i++)
@@ -66,7 +66,8 @@ AForm *Intern::makeForm(std::string name, std::string target)
 		}
 	}
 
-	std::cout << name << "doesn't match any existant functions" << std::endl;
+	std::cout << name << " doesn't match any existing form" << std::endl;
+	return NULL;
 }
 Intern::~Intern(void)
 {

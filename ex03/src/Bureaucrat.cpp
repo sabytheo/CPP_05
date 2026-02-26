@@ -87,14 +87,16 @@ void Bureaucrat::signForm(AForm &other)
 
 void Bureaucrat::executeForm(AForm const &other) const
 {
-	if (other.execute(*this) == true)
-		std::cout << this->_name << " executed " << other.getName() << std::endl;
-	// else if (other.getStatus() == true)
-	// 	std::cout << this->_name << " cannot executed" << other.getName() << \
-	// 	" because the grade required to exec the form is " << other.getRankToExec() \
-	// 	<< "and " << this->_name << "is only rank " << this->_rank << std::endl;
-	// else
-	// 	std::cout << other.getName() << " need to be signed for being executed" << std::endl;
+	try
+	{
+		if (other.execute(*this) == true)
+			std::cout << this->_name << " executed " << other.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->_name << " cannot execute " << other.getName()
+				  << " because " << e.what() << std::endl;
+	}
 }
 
 std::string Bureaucrat::getName() const
@@ -114,6 +116,6 @@ Bureaucrat::~Bureaucrat(void)
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other)
 {
-	os << other.getName() << ", bureaucrate grade " << other.getGrade() << ".";
+	os << other.getName() << ", bureaucrat grade " << other.getGrade() << ".";
 	return os;
 }

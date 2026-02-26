@@ -46,7 +46,6 @@ class Form
 		};
 
 		std::string getName() const;
-		size_t getGrade() const;
 		size_t getRankToSign() const;
 		size_t getRankToExec() const;
 		bool beSigned(Bureaucrat& other);
