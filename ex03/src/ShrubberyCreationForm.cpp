@@ -26,12 +26,12 @@ const char *ShrubberyCreationForm::FormIsNotSignedException::what() const throw(
 	return "The Form need to be signed for being executed";
 }
 
-bool ShrubberyCreationForm::execute(Bureaucrat const &executeur) const
+bool ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getStatus() == false)
 		throw ShrubberyCreationForm::FormIsNotSignedException();
-	if (this->getRankToExec() <  executeur.getGrade())
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getRankToExec() <  executor.getGrade())
+		throw AForm::GradeTooLowException();
 
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream outfile(filename.c_str());

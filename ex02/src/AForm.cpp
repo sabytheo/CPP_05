@@ -13,22 +13,21 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(): _name("Default") , _isSigned(false), _rankNeededToSign(150) , _rankNeededToExec(150)
+AForm::AForm() : _name("Default"), _isSigned(false), _rankNeededToSign(150), _rankNeededToExec(150)
 {
 	std::cout << "Default AForm constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string& name, const size_t rankNeededToSign , const size_t rankNeededToExec): \
-_name(name) , _isSigned(false) ,  _rankNeededToSign(rankNeededToSign), _rankNeededToExec(rankNeededToExec)
+AForm::AForm(const std::string &name, const int rankNeededToSign, const int rankNeededToExec) : _name(name), _isSigned(false), _rankNeededToSign(rankNeededToSign), _rankNeededToExec(rankNeededToExec)
 {
-	if (rankNeededToSign < 1 || rankNeededToExec < 1 )
-		throw AForm::GradeTooHighException() ;
+	if (rankNeededToSign < 1 || rankNeededToExec < 1)
+		throw AForm::GradeTooHighException();
 	else if (rankNeededToSign > 150 || rankNeededToExec > 150)
-		throw AForm::GradeTooLowException() ;
+		throw AForm::GradeTooLowException();
 	std::cout << "AForm " << name << " constructor called" << std::endl;
 }
 
-AForm::AForm(const AForm &copy) : _name(copy._name) , _rankNeededToSign(copy._rankNeededToSign) , _rankNeededToExec(copy._rankNeededToExec)
+AForm::AForm(const AForm &copy) : _name(copy._name), _rankNeededToSign(copy._rankNeededToSign), _rankNeededToExec(copy._rankNeededToExec)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->_isSigned = copy._isSigned;
@@ -44,48 +43,47 @@ AForm &AForm::operator=(const AForm &other)
 	return *this;
 }
 
-const char* AForm::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high!";
 }
 
-const char* AForm::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low!";
 }
 
-
-const char* AForm::isAlreadySign::what() const throw()
+const char *AForm::isAlreadySignedException::what() const throw()
 {
-	return "The Aform is already Sign by someone";
+	return "The Aform is already signed by someone";
 }
 
 std::string AForm::getName() const
 {
-	return(this->_name);
+	return (this->_name);
 }
 
-size_t AForm::getRankToExec() const
+int AForm::getRankToExec() const
 {
 	return (this->_rankNeededToExec);
 }
 
-size_t AForm::getRankToSign() const
+int AForm::getRankToSign() const
 {
 	return (this->_rankNeededToSign);
 }
 
 bool AForm::getStatus() const
 {
-	return(this->_isSigned);
+	return (this->_isSigned);
 }
 
-bool AForm::beSigned(Bureaucrat& other)
+bool AForm::beSigned(Bureaucrat &other)
 {
 	std::cout << "Grade of Signer " << other.getGrade() << std::endl;
 	std::cout << "Rank for Signing " << this->_name << " is " << this->_rankNeededToSign << std::endl;
 	if (this->_isSigned == true)
-		throw AForm::isAlreadySign();
+		throw AForm::isAlreadySignedException();
 	else if (this->_rankNeededToSign < other.getGrade())
 		throw AForm::GradeTooLowException();
 	else
