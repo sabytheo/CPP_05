@@ -62,22 +62,22 @@ const char* AForm::isAlreadySign::what() const throw()
 
 std::string AForm::getName() const
 {
-	return(_name);
+	return(this->_name);
 }
 
 size_t AForm::getRankToExec() const
 {
-	return (_rankNeededToExec);
+	return (this->_rankNeededToExec);
 }
 
 size_t AForm::getRankToSign() const
 {
-	return (_rankNeededToSign);
+	return (this->_rankNeededToSign);
 }
 
 bool AForm::getStatus() const
 {
-	return(_isSigned);
+	return(this->_isSigned);
 }
 
 bool AForm::beSigned(Bureaucrat& other)
