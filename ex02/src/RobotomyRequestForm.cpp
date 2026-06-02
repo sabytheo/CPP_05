@@ -25,12 +25,12 @@ const char *RobotomyRequestForm::FormIsNotSignedException::what() const throw()
 	return "The Form need to be signed for being executed";
 }
 
-bool RobotomyRequestForm::execute(Bureaucrat const &executeur) const
+bool RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getStatus() == false)
 		throw RobotomyRequestForm::FormIsNotSignedException();
-	if (this->getRankToExec() <  executeur.getGrade())
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getRankToExec() <  executor.getGrade())
+		throw AForm::GradeTooLowException();
 	std::cout << "MAKING SOME DRILL NOISE DRRRRRRRRRRRRRRRRRRRRRRRRRRRRR" << std::endl;
 	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been succefully Robotomized, he is now a GOLDFISH" << std::endl;

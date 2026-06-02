@@ -25,12 +25,12 @@ const char *PresidentialPardonForm::FormIsNotSignedException::what() const throw
 	return "The Form need to be signed for being executed";
 }
 
-bool PresidentialPardonForm::execute(Bureaucrat const &executeur) const
+bool PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getStatus() == false)
 		throw PresidentialPardonForm::FormIsNotSignedException();
-	if (this->getRankToExec() <  executeur.getGrade())
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getRankToExec() <  executor.getGrade())
+		throw AForm::GradeTooLowException();
 
 	std::cout << this->_target <<" has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return (true);
