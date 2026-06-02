@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm () , _target("default")
+RobotomyRequestForm::RobotomyRequestForm(): AForm("Robotomy",72,45) , _target("default")
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Robotomy",72,45) , _target(target)
@@ -14,7 +14,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;

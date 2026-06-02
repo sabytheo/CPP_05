@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:03:26 by tsaby             #+#    #+#             */
-/*   Updated: 2026/01/26 15:52:04 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:46:51 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ void Bureaucrat::signForm(Form &other)
 
 std::string Bureaucrat::getName() const
 {
-	return (_name);
+	return (this->_name);
 }
 
 size_t Bureaucrat::getGrade() const
 {
-	return (_rank);
+	return (this->_rank);
 }
 
 Bureaucrat::~Bureaucrat(void)
