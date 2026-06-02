@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:03:26 by tsaby             #+#    #+#             */
-/*   Updated: 2026/01/23 12:14:31 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 10:40:55 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void 	Bureaucrat::decrementGrade()
 
 std::string Bureaucrat::getName() const
 {
-	return(_name);
+	return(this->_name);
 }
 
 size_t Bureaucrat::getGrade() const
 {
-	return(_rank);
+	return(this->_rank);
 }
 
 Bureaucrat::~Bureaucrat(void)
