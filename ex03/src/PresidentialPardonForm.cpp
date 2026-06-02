@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm () , _target("default")
+PresidentialPardonForm::PresidentialPardonForm(): AForm("Pardon",25,5) , _target("default")
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("Pardon",25,5) , _target(target)
@@ -14,7 +14,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:03:26 by tsaby             #+#    #+#             */
-/*   Updated: 2026/06/02 10:40:55 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 16:29:28 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ Bureaucrat::Bureaucrat(): _name("Default") , _rank(150)
 Bureaucrat::Bureaucrat(const std::string& name, size_t rank): _name(name)
 {
 	if (rank < 1)
-	throw Bureaucrat::GradeTooHighException() ;
+		throw Bureaucrat::GradeTooHighException();
 	else if (rank > 150)
-	throw Bureaucrat::GradeTooLowException() ;
+		throw Bureaucrat::GradeTooLowException();
 	else
-	this->_rank = rank;
+		this->_rank = rank;
 	std::cout << "Bureaucrat " << name << " constructor called" << std::endl;
 }
 
