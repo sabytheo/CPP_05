@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm () , _target("default")
+RobotomyRequestForm::RobotomyRequestForm(): AForm ("Robotomy",72,45) , _target("default")
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Robotomy",72,45) , _target(target)
@@ -14,7 +14,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;
@@ -31,7 +31,6 @@ bool RobotomyRequestForm::execute(Bureaucrat const &executeur) const
 		throw RobotomyRequestForm::FormIsNotSignedException();
 	if (this->getRankToExec() <  executeur.getGrade())
 		throw Bureaucrat::GradeTooLowException();
-
 	std::cout << "MAKING SOME DRILL NOISE DRRRRRRRRRRRRRRRRRRRRRRRRRRRRR" << std::endl;
 	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been succefully Robotomized, he is now a GOLDFISH" << std::endl;

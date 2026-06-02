@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm () , _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm ("Shrubbery",145,137) , _target("default")
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery",145,137) , _target(target)
@@ -15,7 +15,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;
