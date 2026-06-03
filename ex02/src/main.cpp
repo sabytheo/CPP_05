@@ -6,11 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:20:23 by tsaby             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/06/02 15:46:44 by tsaby            ###   ########.fr       */
-=======
-/*   Updated: 2026/06/02 18:26:32 by tsaby            ###   ########.fr       */
->>>>>>> 6740ea314ac4d3c760c6f7d239d0446d14e8513b
+/*   Updated: 2026/06/03 12:31:22 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +28,6 @@ int main(void)
 		std::cout << shrubbery << std::endl;
 
 		high.executeForm(shrubbery);
-
 		high.signForm(shrubbery);
 		high.executeForm(shrubbery);
 		low.executeForm(shrubbery);
