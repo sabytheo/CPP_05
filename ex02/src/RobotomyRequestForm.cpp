@@ -31,7 +31,6 @@ bool RobotomyRequestForm::execute(Bureaucrat const &executeur) const
 		throw RobotomyRequestForm::FormIsNotSignedException();
 	if (this->getRankToExec() <  executeur.getGrade())
 		throw Bureaucrat::GradeTooLowException();
-
 	std::cout << "MAKING SOME DRILL NOISE DRRRRRRRRRRRRRRRRRRRRRRRRRRRRR" << std::endl;
 	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been succefully Robotomized, he is now a GOLDFISH" << std::endl;

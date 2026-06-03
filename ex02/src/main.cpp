@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:20:23 by tsaby             #+#    #+#             */
-/*   Updated: 2026/01/29 11:02:13 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 15:46:44 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
 
 	std::cout << "---" << std::endl;
 
-	RobotomyRequestForm robotomy("Bender");
+	RobotomyRequestForm robotomy("Robot");
 	std::cout << robotomy << std::endl;
 
 	high.signForm(robotomy);
