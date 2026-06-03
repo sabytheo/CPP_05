@@ -18,7 +18,7 @@ Form::Form(): _name("Default") , _isSigned(false), _rankNeededToSign(150) , _ran
 	std::cout << "Default Form constructor called" << std::endl;
 }
 
-Form::Form(const std::string& name, const size_t rankNeededToSign , const size_t rankNeededToExec): \
+Form::Form(const std::string& name, const int rankNeededToSign , const int rankNeededToExec): \
 _name(name) , _isSigned(false) ,  _rankNeededToSign(rankNeededToSign), _rankNeededToExec(rankNeededToExec)
 {
 	if (rankNeededToSign < 1 || rankNeededToExec < 1 )
@@ -65,12 +65,12 @@ std::string Form::getName() const
 	return(this->_name);
 }
 
-size_t Form::getRankToExec() const
+int Form::getRankToExec() const
 {
 	return (this->_rankNeededToExec);
 }
 
-size_t Form::getRankToSign() const
+int Form::getRankToSign() const
 {
 	return (this->_rankNeededToSign);
 }

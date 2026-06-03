@@ -21,11 +21,11 @@ class AForm
 	private:
 		const std::string _name;
 		bool	_isSigned;
-		const size_t _rankNeededToSign;
-		const size_t _rankNeededToExec;
+		const int _rankNeededToSign;
+		const int _rankNeededToExec;
 	public:
 		AForm();
-		AForm(const std::string& name, const size_t _rankNeededToSign , const size_t _rankNeededToExec);
+		AForm(const std::string& name, const int _rankNeededToSign , const int _rankNeededToExec);
 		AForm(const AForm &copy);
 		AForm& operator=(const AForm& other);
 		virtual ~AForm();
@@ -40,15 +40,15 @@ class AForm
 				virtual const char * what() const throw();
 		};
 
-		class isAlreadySign : public std::exception {
+		class isAlreadySignedException : public std::exception {
 			public:
 				virtual const char * what() const throw();
 		};
 
 		std::string getName() const;
-		size_t getGrade() const;
-		size_t getRankToSign() const;
-		size_t getRankToExec() const;
+		int getGrade() const;
+		int getRankToSign() const;
+		int getRankToExec() const;
 		bool beSigned(Bureaucrat& other);
 		virtual bool execute(Bureaucrat const & executor) const = 0;
 		bool	getStatus() const;

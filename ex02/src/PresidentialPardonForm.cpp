@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm () , _target("default")
+PresidentialPardonForm::PresidentialPardonForm(): AForm ("Pardon",25,5) , _target("default")
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("Pardon",25,5) , _target(target)
@@ -14,7 +14,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;
@@ -25,12 +25,12 @@ const char *PresidentialPardonForm::FormIsNotSignedException::what() const throw
 	return "The Form need to be signed for being executed";
 }
 
-bool PresidentialPardonForm::execute(Bureaucrat const &executeur) const
+bool PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getStatus() == false)
 		throw PresidentialPardonForm::FormIsNotSignedException();
-	if (this->getRankToExec() <  executeur.getGrade())
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getRankToExec() <  executor.getGrade())
+		throw AForm::GradeTooLowException();
 
 	std::cout << this->_target <<" has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return (true);
