@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:03:13 by tsaby             #+#    #+#             */
-/*   Updated: 2026/01/26 16:22:39 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 19:01:11 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ class Form
 	private:
 		const std::string _name;
 		bool	_isSigned;
-		const size_t _rankNeededToSign;
-		const size_t _rankNeededToExec;
+		const int _rankNeededToSign;
+		const int _rankNeededToExec;
 	public:
 		Form();
-		Form(const std::string& name, const size_t _rankNeededToSign , const size_t _rankNeededToExec);
+		Form(const std::string& name, const int _rankNeededToSign , const int _rankNeededToExec);
 		Form(const Form &copy);
 		Form& operator=(const Form& other);
 		~Form();
@@ -46,8 +46,8 @@ class Form
 		};
 
 		std::string getName() const;
-		size_t getRankToSign() const;
-		size_t getRankToExec() const;
+		int getRankToSign() const;
+		int getRankToExec() const;
 		bool beSigned(Bureaucrat& other);
 		bool	getStatus() const;
 

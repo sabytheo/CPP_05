@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm () , _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm ("Shrubbery",145,137) , _target("default")
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbery",145,137) , _target(target)
@@ -15,7 +15,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// AForm:operator=(other);
+		AForm::operator=(other);
 		this->_target = other._target;
 	}
 	return *this;
@@ -26,12 +26,12 @@ const char *ShrubberyCreationForm::FormIsNotSignedException::what() const throw(
 	return "The Form need to be signed for being executed";
 }
 
-bool ShrubberyCreationForm::execute(Bureaucrat const &executeur) const
+bool ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getStatus() == false)
 		throw ShrubberyCreationForm::FormIsNotSignedException();
-	if (this->getRankToExec() <  executeur.getGrade())
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getRankToExec() <  executor.getGrade())
+		throw AForm::GradeTooLowException();
 
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream outfile(filename.c_str());

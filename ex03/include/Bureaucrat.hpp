@@ -6,7 +6,7 @@
 /*   By: tsaby <tsaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:03:13 by tsaby             #+#    #+#             */
-/*   Updated: 2026/01/29 10:33:12 by tsaby            ###   ########.fr       */
+/*   Updated: 2026/06/02 19:59:10 by tsaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class Bureaucrat
 {
 	private:
 		const std::string _name;
-		size_t _rank;
+		int _rank;
 	public:
 		Bureaucrat();
-		Bureaucrat(const std::string& name, size_t rank);
+		Bureaucrat(const std::string& name, int rank);
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat();
@@ -40,7 +40,7 @@ class Bureaucrat
 		};
 
 		std::string getName() const;
-		size_t getGrade() const;
+		int getGrade() const;
 
 		void	signForm(AForm& other);
 		void	executeForm(AForm const &form) const;
